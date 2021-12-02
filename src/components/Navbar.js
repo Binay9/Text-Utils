@@ -6,7 +6,7 @@ function Navbar(props) {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">Text-Utils</a>
+            <a className="navbar-brand" href="/"><h4>Text-Utils</h4></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -20,7 +20,7 @@ function Navbar(props) {
                 </li>
               </ul>
               <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <input className="form-control me-2" type="search" placeholder={props.search} aria-label="Search" />
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form>
             </div>
@@ -32,12 +32,14 @@ function Navbar(props) {
 
 Navbar.propTypes = {
     home: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired
+    about: PropTypes.string.isRequired,
+    search: PropTypes.string.isRequired
 };
 
 Navbar.defaultProps = {
     home: "Default Home",
-    about: "Default About"
+    about: "Default About",
+    search: "Type To Search"
 };
 
 export default Navbar
