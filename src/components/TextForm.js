@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 
-export default function TextForm() {
+export default function TextForm(props) {
   const handleUpClick = () => {
     setText(text.toUpperCase());
+
+    props.ShowAlert("Text has been converted to uppercase.", "success");
   };
 
   const handleDownClick = () => {
     setText(text.toLowerCase());
+    props.ShowAlert("Text has been converted to lowercase.", "success");
   };
 
   const handleCopyClick = () => {
     let copyText = document.getElementById("textString");
     copyText.select();
     navigator.clipboard.writeText(copyText.value);
+    props.ShowAlert("Text has been copied to clipboard.", "success");
   };
 
   const handleClearClick = () => {
     setText("");
+    props.ShowAlert("Text Cleared.", "success");
   };
 
   const handleOnChange = (event) => {
@@ -27,7 +32,7 @@ export default function TextForm() {
 
   return (
     <>
-      <div style={{ height: "89vh" }}>
+      <div style={{ height: "120vh" }}>
         <div className="container p-3">
           <div className="row p-4 m-3 border">
             <div className="col">
@@ -47,7 +52,7 @@ export default function TextForm() {
                 </div>
               </div>
               <textarea
-                className="form-control"
+                className="form-control text-break"
                 value={text}
                 onChange={handleOnChange}
                 col="3"
@@ -80,9 +85,9 @@ export default function TextForm() {
               </p>
             </div>
           </div>
-          <div className="container mx-3 border">
+          <div className="text-center border">
             <h3>Preview</h3>
-            <p>{text}</p>
+            <p className="text-break">{text}</p>
           </div>
         </div>
       </div>
