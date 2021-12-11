@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+  // const wordCount = (str) => {
+  //   return str.split(/\S+/).length - 1;
+  // };
+
   const handleUpClick = () => {
     setText(text.toUpperCase());
 
@@ -81,7 +86,7 @@ export default function TextForm(props) {
             <div className="col m-3">
               <h3>Text Details</h3>
               <p>
-                Words = {text.split(" ").length} & Length = {text.length}.
+                Words = {text.split(/\S+/).length - 1} & Length = {text.length}.
               </p>
             </div>
           </div>
